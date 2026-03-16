@@ -19,3 +19,10 @@ This repository is an AI frontend test project.
 - React + Vite + TypeScript
 - Tailwind CSS
 - Framer Motion
+
+## Publish
+
+- Auto create GitHub remote repo and push:
+  - `npm run publish:github`
+- Create private repo and push:
+  - `npm run publish:github:private`
