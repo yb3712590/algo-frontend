@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Space Grotesk", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #1f1e24;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #1f1e24;
+}
+
+.bg-canvas {
+  background-image:
+    radial-gradient(circle at 10% 15%, rgba(244, 162, 89, 0.16), transparent 34%),
+    radial-gradient(circle at 82% 0%, rgba(42, 157, 143, 0.16), transparent 30%),
+    linear-gradient(160deg, #f6f3eb, #faf8f2 55%, #fffefb);
+}
+
+pre,
+code {
+  font-family: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+}
+
+.code-shell {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #1c1c23 0%, #16161d 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.code-shell-top {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.code-shell-top span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.pretty-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.24) transparent;
+}
+
+.pretty-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pretty-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pretty-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(244, 162, 89, 0.4));
+  background-clip: padding-box;
+}
