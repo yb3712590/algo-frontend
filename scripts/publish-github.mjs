@@ -1,10 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const cwd = process.cwd();
 
 const args = process.argv.slice(2);
@@ -20,15 +15,7 @@ const customName = findArgValue(args, "--name") || "";
 const description =
   findArgValue(args, "--description") ||
   "AI frontend test project based on CLRS and datawhalechina/leetcode-notes";
-
-const localGhPath = path.resolve(
-  __dirname,
-  "..",
-  "tools",
-  "bin",
-  process.platform === "win32" ? "gh.exe" : "gh",
-);
-const ghBin = resolveGhBin(localGhPath);
+const ghBin = process.env.GH_BIN || "gh";
 
 ensureCommandAvailable(ghBin);
 ensureGitRepo();
@@ -59,20 +46,10 @@ if (!hasOrigin) {
   console.log(`Pushed branch '${branch}' to existing origin.`);
 }
 
-function resolveGhBin(localPath) {
-  if (process.env.GH_BIN && existsSync(process.env.GH_BIN)) {
-    return process.env.GH_BIN;
-  }
-  if (existsSync(localPath)) {
-    return localPath;
-  }
-  return "gh";
-}
-
 function ensureCommandAvailable(command) {
   const version = run(command, ["--version"], false);
   if (version.status !== 0) {
-    console.error("GitHub CLI not found. Please install gh or place it at tools/bin.");
+    console.error("GitHub CLI not found. Please install system gh first.");
     process.exit(1);
   }
 }

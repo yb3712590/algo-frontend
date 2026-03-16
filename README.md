@@ -22,6 +22,7 @@ This repository is an AI frontend test project.
 
 ## Publish
 
+- Requirement: install system-level `gh` and complete `gh auth login`.
 - Auto create GitHub remote repo and push:
   - `npm run publish:github`
 - Create private repo and push:
